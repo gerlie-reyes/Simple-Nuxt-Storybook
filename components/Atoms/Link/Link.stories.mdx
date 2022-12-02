@@ -1,0 +1,32 @@
+<!-- YourComponent.stories.mdx -->
+
+import { Meta, Story, Canvas } from "@storybook/addon-docs";
+
+import Link from "./Link.vue";
+
+<!--👇 The title prop determines where your story goes in the story list -->
+
+<Meta title="Atoms/Link" component={Link} />
+
+<!--👇 We create a “template” of how args map to rendering -->
+
+export const Template = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { Link },
+  template: `<Link :href="href" :target="target" v-bind="$props">{{ content }}</Link>`,
+});
+
+<!-- 👇 The args you need here will depend on your component -->
+
+<Canvas>
+  <Story
+    name="Primary Link"
+    args={{
+      theme: "primary",
+      href: "https://google.com",
+      content: "Primary link",
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
