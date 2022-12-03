@@ -4,27 +4,47 @@ import { Meta, Story, Canvas } from "@storybook/addon-docs";
 
 import Link from "./Link.vue";
 
+export const argTypes = {
+  linkType: {
+    control: "radio",
+    options: ["nuxt-link", "normal-link"],
+    defaultValue: "nuxt-link",
+  },
+};
+
 <!--👇 The title prop determines where your story goes in the story list -->
 
-<Meta title="Atoms/Link" component={Link} />
+<Meta title="Atoms/Link" component={Link} argTypes={argTypes} />
 
 <!--👇 We create a “template” of how args map to rendering -->
 
 export const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components: { Link },
-  template: `<Link :href="href" :target="target" v-bind="$props">{{ content }}</Link>`,
+  template: `<Link :href="href" :target="target" :linkType="linkType">{{ content }}</Link>`,
 });
 
 <!-- 👇 The args you need here will depend on your component -->
 
 <Canvas>
   <Story
-    name="Primary Link"
+    name="Normal Link"
     args={{
       theme: "primary",
       href: "https://google.com",
-      content: "Primary link",
+      content: "Normal link",
+      linkType: "normal-link",
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+  <Story
+    name="Nuxt Link"
+    args={{
+      theme: "secondary",
+      href: "/",
+      content: "Nuxt link",
+      linkType: "nuxt-link",
     }}
   >
     {Template.bind({})}

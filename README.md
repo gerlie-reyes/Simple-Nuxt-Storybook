@@ -1,4 +1,4 @@
-# simple-nuxt-storybook
+# test
 
 ## Build Setup
 

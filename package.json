@@ -1,5 +1,5 @@
 {
-  "name": "simple-nuxt-storybook",
+  "name": "test",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -28,6 +28,8 @@
     "@storybook/testing-library": "^0.0.13",
     "@storybook/vue": "^6.5.14",
     "babel-loader": "^8.3.0",
+    "css-loader": "5.2.0",
+    "postcss": "8",
     "vue-loader": "^15.10.1"
   }
 }
