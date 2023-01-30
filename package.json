@@ -7,7 +7,7 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "nuxt storybook",
     "build-storybook": "build-storybook"
   },
   "dependencies": {
@@ -15,7 +15,9 @@
     "nuxt": "^2.15.8",
     "vue": "^2.7.10",
     "vue-server-renderer": "^2.7.10",
-    "vue-template-compiler": "^2.7.10"
+    "vue-template-compiler": "^2.7.10",
+    "@nuxtjs/storybook": "latest",
+    "nuxt-edge": "latest"
   },
   "devDependencies": {
     "@babel/core": "^7.20.5",

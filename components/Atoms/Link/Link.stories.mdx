@@ -1,14 +1,11 @@
-<!-- YourComponent.stories.mdx -->
-
+<!-- Link.stories.mdx -->
 import { Meta, Story, Canvas } from "@storybook/addon-docs";
 
 import Link from "./Link.vue";
 
 export const argTypes = {
-  linkType: {
-    control: "radio",
-    options: ["nuxt-link", "normal-link"],
-    defaultValue: "nuxt-link",
+  isNuxtLink: {
+    control: "boolean"
   },
 };
 
@@ -21,7 +18,7 @@ export const argTypes = {
 export const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components: { Link },
-  template: `<Link :href="href" :target="target" :linkType="linkType">{{ content }}</Link>`,
+  template: `<Link :href="href" :target="target" :isNuxtLink="isNuxtLink">{{ content }}</Link>`,
 });
 
 <!-- 👇 The args you need here will depend on your component -->
@@ -32,8 +29,7 @@ export const Template = (args, { argTypes }) => ({
     args={{
       theme: "primary",
       href: "https://google.com",
-      content: "Normal link",
-      linkType: "normal-link",
+      content: "Normal link"
     }}
   >
     {Template.bind({})}
@@ -42,9 +38,9 @@ export const Template = (args, { argTypes }) => ({
     name="Nuxt Link"
     args={{
       theme: "secondary",
-      href: "/",
+      href: "/about", // NuxtLink is used to navigate between pages in your app
       content: "Nuxt link",
-      linkType: "nuxt-link",
+      isNuxtLink: true
     }}
   >
     {Template.bind({})}

@@ -3,9 +3,9 @@
     <a v-if="!isNuxtLink" :href="href" :target="linkTarget">
       <slot></slot>
     </a>
-    <NuxtLink v-else :to="href">
+    <nuxt-link v-else :to="href">
       <slot></slot>
-    </NuxtLink>
+    </nuxt-link>
   </div>
 </template>
 
@@ -15,7 +15,7 @@ export default {
   props: {
     href: String,
     target: { String, default: "" },
-    linkType: String,
+    isNuxtLink: {Boolean, default: false},
   },
   computed: {
     linkTarget() {
@@ -24,10 +24,7 @@ export default {
       }
 
       return this.target;
-    },
-    isNuxtLink() {
-      return this.linkType === "nuxt-link";
-    },
+    }
   },
 };
 </script>
