@@ -30,16 +30,5 @@ export default {
   modules: [],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
-
-  storybook: {
-    stories: [
-      '~/components/**/*.stories.mdx'
-    ],
-    addons: [
-      "@storybook/addon-links",
-      "@storybook/addon-essentials",
-      "@storybook/addon-interactions",
-    ],
-  }
+  build: {}
 };
